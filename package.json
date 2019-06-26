@@ -1,6 +1,6 @@
 {
   "name": "@bwnl/react-loading",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": ":black_square_button: BWNL Loading for React",
   "main": "index.js",
   "directories": {

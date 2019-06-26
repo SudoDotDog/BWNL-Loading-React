@@ -33,6 +33,8 @@ export class LoadingView extends React.Component<LoadingViewProps> {
                 outerColor={this.props.outerColor}
                 style={this.props.loadingStyle}
                 className={this.props.loadingClassName}
+                size={this.props.size}
+                unit={this.props.unit}
             />
             {this.props.children}
         </div>);
