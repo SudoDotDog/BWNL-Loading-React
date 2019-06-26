@@ -36,7 +36,9 @@ export class LoadingView extends React.Component<LoadingViewProps> {
                 size={this.props.size}
                 unit={this.props.unit}
             />
-            {this.props.children}
+            <div>
+                {this.props.children}
+            </div>
         </div>);
     }
 
@@ -44,6 +46,7 @@ export class LoadingView extends React.Component<LoadingViewProps> {
 
         return {
             display: 'flex',
+            flexDirection: 'column',
             width: this.props.width,
             height: this.props.height,
             flex: this.props.flex,
