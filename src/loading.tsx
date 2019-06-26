@@ -28,7 +28,7 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
     public readonly state: LoadingStates = {
 
-        spinning: this.props.loading,
+        spinning: this.props.loading || false,
     };
 
     private _timer: any;
