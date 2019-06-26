@@ -1,0 +1,33 @@
+{
+  "name": "@bwnl/react-loading",
+  "version": "1.0.0",
+  "description": ":black_square_button: BWNL Loading for React",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/BWNL-Loading-React.git"
+  },
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/BWNL-Loading-React/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/BWNL-Loading-React#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@sudoo/bark": "^2.7.1",
+    "@sudoo/io": "^1.6.0",
+    "@sudoo/mock": "^1.2.0",
+    "@sudoo/react-force": "^1.5.0",
+    "@sudoo/react-force-dev": "^1.5.0",
+    "@sudoo/triforce": "^1.6.0",
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0"
+  }
+}
