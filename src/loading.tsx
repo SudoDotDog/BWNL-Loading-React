@@ -13,6 +13,8 @@ export type LoadingProps = {
 
     readonly duration?: number;
     readonly loading?: boolean;
+    readonly size?: number;
+    readonly unit?: string;
     readonly outerColor?: string;
     readonly innerColor?: string;
     readonly style?: React.CSSProperties;
@@ -62,7 +64,12 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
     public render(): JSX.Element {
 
         return (<div
-            style={this.props.style}
+            style={{
+                width: this._getSize(),
+                height: this._getSize(),
+                margin: this._getSize(0.5),
+                ...this.props.style,
+            }}
             className={mergeClasses(this._loadingStyle.loading, this.props.className)}
         >
             <div
@@ -82,14 +89,17 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
     private _fontStyle(): React.CSSProperties {
 
-        const result: React.CSSProperties = {};
+        const result: React.CSSProperties = {
+            width: this._getSize(),
+            height: this._getSize(),
+        };
         if (this.props.loading) {
 
             const color: string = this.props.outerColor || '#001F3F';
-            result.outline = `0.5rem solid ${color}`;
+            result.outline = `${this._getSize(0.2)} solid ${color}`;
         } else {
 
-            result.outline = `0.8rem solid transparent`;
+            result.outline = `${this._getSize(0.3)} solid transparent`;
         }
 
         if (this.state.spinning) {
@@ -103,14 +113,17 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
     private _backStyle(): React.CSSProperties {
 
-        const result: React.CSSProperties = {};
+        const result: React.CSSProperties = {
+            width: this._getSize(),
+            height: this._getSize(),
+        };
         if (this.props.loading) {
 
             const color: string = this.props.innerColor || '#01FF70';
-            result.outline = `0.5rem solid ${color}`;
+            result.outline = `${this._getSize(0.2)} solid ${color}`;
         } else {
 
-            result.outline = `0.8rem solid transparent`;
+            result.outline = `${this._getSize(0.3)} solid transparent`;
         }
 
         if (this.state.spinning) {
@@ -120,5 +133,13 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
         }
 
         return result;
+    }
+
+    private _getSize(times: number = 1): string {
+
+        const size: number = this.props.size || 3;
+        const unit: string = this.props.unit || 'rem';
+        const numeric: number = Math.round((size * times) * 10) / 10;
+        return `${numeric}${unit}`;
     }
 }

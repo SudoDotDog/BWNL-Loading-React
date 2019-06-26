@@ -12,8 +12,6 @@ const commonFrontBackStyle = {
     transition: '0.8s all ease-in-out',
     pointerEvents: 'none',
     position: 'absolute',
-    width: '3rem',
-    height: '3rem',
     opacity: 1,
 
     '&.disable': {
@@ -31,9 +29,6 @@ const LoadingStyleBase: JSSStyle = {
     loading: {
         position: 'relative',
         transition: '0.5s all ease-in-out',
-        margin: '1.5rem',
-        width: '3rem',
-        height: '3rem',
     },
     outer: {
         transition: '0.5s all ease-in-out',
