@@ -9,19 +9,19 @@ import * as React from "react";
 import { assertIfTrue, mergeClasses } from "./style/decorator";
 import { LoadingStyle } from "./style/loading";
 
-export type NeonSpinnerProps = {
+export type LoadingProps = {
 
     readonly loading: boolean;
 };
 
-export type NeonSpinnerState = {
+export type LoadingStates = {
 
     readonly spinning: boolean;
 };
 
-export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinnerState> {
+export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
-    public readonly state: NeonSpinnerState = {
+    public readonly state: LoadingStates = {
 
         spinning: this.props.loading,
     };
@@ -29,14 +29,14 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     private _timer: any;
     private readonly _loadingStyle: Classes = LoadingStyle.use();
 
-    public constructor(props: NeonSpinnerProps) {
+    public constructor(props: LoadingProps) {
 
         super(props);
 
         this._timer = undefined;
     }
 
-    public componentWillReceiveProps(nextProps: NeonSpinnerProps) {
+    public componentWillReceiveProps(nextProps: LoadingProps) {
 
         clearTimeout(this._timer);
 
