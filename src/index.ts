@@ -5,5 +5,4 @@
  */
 
 export * from "./loading";
-export * from "./view";
 
