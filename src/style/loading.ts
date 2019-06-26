@@ -35,15 +35,6 @@ const LoadingStyleBase: JSSStyle = {
         width: '3rem',
         height: '3rem',
     },
-    disable: {
-        outline: `0.8rem solid transparent`,
-    },
-    enableFront: {
-        outline: `0.5rem solid #001F3F`,
-    },
-    enableBack: {
-        outline: `0.5rem solid #01FF70`,
-    },
     outer: {
         transition: '0.5s all ease-in-out',
         position: 'absolute',
@@ -54,12 +45,6 @@ const LoadingStyleBase: JSSStyle = {
     },
     back: {
         ...commonFrontBackStyle,
-    },
-    spinningFront: {
-        animation: 'bwnl-loading-rotate 3s infinite',
-    },
-    spinningBack: {
-        animation: 'bwnl-loading-rotate 1.5s infinite',
     },
     '@global': {
         '@keyframes bwnl-loading-rotate': keyframes,

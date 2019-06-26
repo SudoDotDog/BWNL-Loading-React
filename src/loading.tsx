@@ -6,12 +6,17 @@
 
 import { Classes } from "jss";
 import * as React from "react";
-import { assertIfTrue, mergeClasses } from "./style/decorator";
+import { mergeClasses } from "./style/decorator";
 import { LoadingStyle } from "./style/loading";
 
 export type LoadingProps = {
 
-    readonly loading: boolean;
+    readonly duration?: number;
+    readonly loading?: boolean;
+    readonly outerColor?: string;
+    readonly innerColor?: string;
+    readonly style?: React.CSSProperties;
+    readonly className?: string;
 };
 
 export type LoadingStates = {
@@ -47,37 +52,73 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
             });
         } else {
 
+            const duration: number = this.props.duration ? Math.floor(this.props.duration / 3) : 1000;
             this._timer = setTimeout(() => this.setState({
                 spinning: false,
-            }), 1000);
+            }), duration);
         }
     }
 
     public render(): JSX.Element {
 
-        return (<div className={this._loadingStyle.loading}>
-            <div className={this._loadingStyle.outer} >
-                <div className={this._frontClass()} />
-                <div className={this._backClass()} />
+        return (<div
+            style={this.props.style}
+            className={mergeClasses(this._loadingStyle.loading, this.props.className)}
+        >
+            <div
+                className={this._loadingStyle.outer}
+            >
+                <div
+                    style={this._fontStyle()}
+                    className={this._loadingStyle.front}
+                />
+                <div
+                    style={this._backStyle()}
+                    className={this._loadingStyle.back}
+                />
             </div>
         </div>);
     }
 
-    private _frontClass(): string | undefined {
+    private _fontStyle(): React.CSSProperties {
 
-        return mergeClasses(
-            this._loadingStyle.front,
-            this.props.loading ? this._loadingStyle.enableFront : this._loadingStyle.disable,
-            assertIfTrue(this.state.spinning, this._loadingStyle.spinningFront),
-        );
+        const result: React.CSSProperties = {};
+        if (this.props.loading) {
+
+            const color: string = this.props.outerColor || '#001F3F';
+            result.outline = `0.5rem solid ${color}`;
+        } else {
+
+            result.outline = `0.8rem solid transparent`;
+        }
+
+        if (this.state.spinning) {
+
+            const duration: number = this.props.duration || 3000;
+            result.animation = `bwnl-loading-rotate ${duration}ms infinite`;
+        }
+
+        return result;
     }
 
-    private _backClass(): string | undefined {
+    private _backStyle(): React.CSSProperties {
 
-        return mergeClasses(
-            this._loadingStyle.back,
-            this.props.loading ? this._loadingStyle.enableBack : this._loadingStyle.disable,
-            assertIfTrue(this.state.spinning, this._loadingStyle.spinningBack),
-        );
+        const result: React.CSSProperties = {};
+        if (this.props.loading) {
+
+            const color: string = this.props.innerColor || '#01FF70';
+            result.outline = `0.5rem solid ${color}`;
+        } else {
+
+            result.outline = `0.8rem solid transparent`;
+        }
+
+        if (this.state.spinning) {
+
+            const duration: number = this.props.duration ? Math.floor(this.props.duration / 2) : 1500;
+            result.animation = `bwnl-loading-rotate ${duration}ms infinite`;
+        }
+
+        return result;
     }
 }
