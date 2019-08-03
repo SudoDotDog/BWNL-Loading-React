@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace BWNL
+ * @namespace Loading
  * @description View
  */
 
