@@ -4,9 +4,8 @@
  * @description Spinner
  */
 
-import { Classes } from "jss";
+import { mergeClasses } from "@sudoo/jss";
 import * as React from "react";
-import { mergeClasses } from "./style/decorator";
 import { LoadingStyle } from "./style/loading";
 
 export type LoadingProps = {
@@ -34,7 +33,7 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
     };
 
     private _timer: any;
-    private readonly _loadingStyle: Classes = LoadingStyle.use();
+    private readonly _loadingStyle = LoadingStyle.use();
 
     public constructor(props: LoadingProps) {
 
@@ -70,7 +69,10 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
                 margin: this._getSize(0.5),
                 ...this.props.style,
             }}
-            className={mergeClasses(this._loadingStyle.loading, this.props.className)}
+            className={mergeClasses(
+                this._loadingStyle.loading,
+                this.props.className,
+            )}
         >
             <div
                 className={this._loadingStyle.outer}

@@ -4,8 +4,7 @@
  * @description Loading
  */
 
-import { JSSStyle } from "./decorator";
-import { StyleManager } from "./style";
+import { JSSStyle, StyleManager } from "@sudoo/jss";
 
 const commonFrontBackStyle = {
 

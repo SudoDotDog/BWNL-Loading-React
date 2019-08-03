@@ -1059,6 +1059,14 @@
     "@sudoo/bark" "^2.7.1"
     connor "^2.6.0"
 
+"@sudoo/jss@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@sudoo/jss/-/jss-1.0.1.tgz#e53f1039e06bc9136f928d423cf448e9aaa9af5b"
+  integrity sha512-XXJ4tEqe3UGidS9xkbALl0mU8KyqT2s5q1I+IJ6lm6plNfPGTJ3fy2m7WCcpA4zcxCuodSKVwrFi/NNliZSLUg==
+  dependencies:
+    jss "^10.0.0-alpha.23"
+    jss-preset-default "^10.0.0-alpha.23"
+
 "@sudoo/mock@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@sudoo/mock/-/mock-1.2.0.tgz#7c3c5ff731ddaeb8839dac7a1384b8ef9d95948b"

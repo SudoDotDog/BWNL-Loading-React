@@ -4,7 +4,7 @@
  * @description Index
  */
 
-import { Register } from "./style/register";
+import { Register } from "@sudoo/jss";
 
 Register.register();
 
