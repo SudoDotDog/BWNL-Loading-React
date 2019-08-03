@@ -21,11 +21,11 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "jss": "^10.0.0-alpha.21",
-    "jss-preset-default": "^10.0.0-alpha.21"
+    "jss": "^10.0.0-alpha.23",
+    "jss-preset-default": "^10.0.0-alpha.23"
   },
   "devDependencies": {
-    "@sudoo/io": "^1.6.0",
+    "@sudoo/io": "^1.6.1",
     "@sudoo/mock": "^1.2.0",
     "@sudoo/react-force": "^1.5.0",
     "@sudoo/react-force-dev": "^1.5.0",
