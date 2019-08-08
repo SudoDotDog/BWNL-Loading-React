@@ -45,4 +45,4 @@ const LoadingStyleBase: JSSStyle = {
     },
 };
 
-export const LoadingStyle: StyleManager = StyleManager.create(LoadingStyleBase, 'Loading');
+export const LoadingStyle: StyleManager = StyleManager.create(LoadingStyleBase, 'Loading').setPrefix('BWNL-Loading-');
