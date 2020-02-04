@@ -5,6 +5,7 @@
  */
 
 import { mergeClasses } from "@sudoo/jss";
+import { TIME_IN_MILLISECONDS } from "@sudoo/magic";
 import * as React from "react";
 import { LoadingStyle } from "./style/loading";
 
@@ -25,6 +26,7 @@ export type LoadingStates = {
     readonly spinning: boolean;
 };
 
+// tslint:disable: no-magic-numbers
 export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
     public readonly state: LoadingStates = {
@@ -53,7 +55,7 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
             });
         } else {
 
-            const duration: number = this.props.duration ? Math.floor(this.props.duration / 3) : 1000;
+            const duration: number = this.props.duration ? Math.floor(this.props.duration / 3) : TIME_IN_MILLISECONDS.SECOND;
             this._timer = setTimeout(() => this.setState({
                 spinning: false,
             }), duration);
@@ -145,3 +147,4 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
         return `${numeric}${unit}`;
     }
 }
+// tslint:enable: no-magic-numbers

@@ -4,9 +4,9 @@
  * @description Loading
  */
 
-import { JSSStyle, StyleManager } from "@sudoo/jss";
+import { StyleManager, Styles } from "@sudoo/jss";
 
-const commonFrontBackStyle = {
+const commonFrontBackStyle: any = {
 
     transition: '0.8s all ease-in-out',
     pointerEvents: 'none',
@@ -23,7 +23,7 @@ const keyframes = {
     '100%': 'transform: rotate(360deg)',
 };
 
-const LoadingStyleBase: JSSStyle = {
+const LoadingStyleBase: Styles = {
 
     loading: {
         position: 'relative',
