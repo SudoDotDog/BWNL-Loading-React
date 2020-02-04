@@ -11,11 +11,14 @@ export type LoadingViewProps = {
 
     readonly width?: number | string;
     readonly height?: number | string;
+
     readonly flex?: number;
-    readonly loadingStyle?: React.CSSProperties;
-    readonly loadingClassName?: string;
+
     readonly style?: React.CSSProperties;
+    readonly loadingStyle?: React.CSSProperties;
+
     readonly className?: string;
+    readonly loadingClassName?: string;
 } & LoadingProps;
 
 export class LoadingView extends React.Component<LoadingViewProps> {
@@ -45,13 +48,16 @@ export class LoadingView extends React.Component<LoadingViewProps> {
     public _getViewStyle(): React.CSSProperties {
 
         return {
+
             display: 'flex',
             flexDirection: 'column',
-            width: this.props.width,
-            height: this.props.height,
-            flex: this.props.flex,
-            justifyContent: 'center',
             alignItems: 'center',
+            justifyContent: 'center',
+            flex: this.props.flex || 1,
+
+            width: this.props.width || 'auto',
+            height: this.props.height || 'auto',
+
             ...this.props.style,
         };
     }
