@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 /**
  * @author WMXPY
  * @namespace Loading
@@ -26,7 +27,6 @@ export type LoadingStates = {
     readonly spinning: boolean;
 };
 
-// tslint:disable: no-magic-numbers
 export class Loading extends React.Component<LoadingProps, LoadingStates> {
 
     public readonly state: LoadingStates = {
@@ -44,7 +44,7 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
         this._timer = undefined;
     }
 
-    public componentWillReceiveProps(nextProps: LoadingProps) {
+    public componentDidUpdate(nextProps: LoadingProps): void {
 
         clearTimeout(this._timer);
 
@@ -147,4 +147,3 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
         return `${numeric}${unit}`;
     }
 }
-// tslint:enable: no-magic-numbers
