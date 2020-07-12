@@ -8,7 +8,6 @@
 import * as React from 'react';
 import { LoadingView } from "../src";
 
-// tslint:disable-next-line: no-default-export
 export default {
     title: 'Loading View',
 };

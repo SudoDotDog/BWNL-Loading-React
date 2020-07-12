@@ -5,18 +5,21 @@
  * @override Story
  */
 
+import { boolean, withKnobs } from "@storybook/addon-knobs";
 import * as React from 'react';
 import { Loading } from "../src";
 
-// tslint:disable-next-line: no-default-export
 export default {
     title: 'Loading',
+    decorators: [withKnobs],
 };
 
 export const Simple = () => {
 
+    const loading: boolean = boolean('loading', true);
+
     return (<Loading
-        loading={true}
+        loading={loading}
         duration={3000}
         size={3}
         unit="rem"

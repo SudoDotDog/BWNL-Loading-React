@@ -47,6 +47,9 @@ export class Loading extends React.Component<LoadingProps, LoadingStates> {
     public componentDidUpdate(nextProps: LoadingProps): void {
 
         clearTimeout(this._timer);
+        if (this.state.spinning === nextProps.loading) {
+            return;
+        }
 
         if (nextProps.loading) {
 
