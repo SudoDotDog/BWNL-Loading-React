@@ -2,10 +2,6 @@
   "name": "@bwnl/react-loading",
   "version": "1.6.0",
   "description": ":black_square_button: BWNL Loading for React",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/BWNL-Loading-React.git"
